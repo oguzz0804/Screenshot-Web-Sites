@@ -1,38 +1,108 @@
-.App {
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+nav {
+  width: 100%;
+  background: #333;
+  padding: 20px 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+nav .container form {
+  height: 34px;
+}
+
+nav .container form button {
+  background: #5486e0;
+  color: #fff;
+  cursor: pointer;
+}
+
+nav .container form button,
+nav .container form input {
+  border: none;
+  outline: none;
+  padding: 0 10px;
+  height: 100%;
+}
+
+.hero {
+  width: 200%;
+  padding: 30px 0;
+  min-height: calc(100vh - 74px);
+  position: relative;
+}
+
+.hero .container {
+  color: red;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.hero.container img {
+  width: 100;
+  height: auto;
+  object-fit: cover;
+}
+
+.loading {
+  position: absolute;
+  top: 50;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 50%;
+  background: #3498db;
+  border-radius: 5px;
+  animation: spinner 1.8s ease-in-out infinite;
+}
+
+.loading::before {
+  left: 10px;
+  top: -20px;
+  width: 40px;
+  background: #ef4836;
+}
+
+.loading::after {
+  bottom: -20px;
+  width: 35px;
+  background: #f5ab35;
+}
+
+.loading::before,
+.loading::after {
+  position: absolute;
+  display: block;
+  content: "";
+  animation: spinner 1.8s ease-in-out infinite;
+  height: 10px;
+  border-radius: 5px;
+}
+
+@keyframes spinner {
+  0% {
+    transform: translateX(40px);
+  }
+  50% {
+    transform: translateX(-30px);
+  }
+  100% {
+    transform: translateX(40px);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@media (max-width: 1462px) {
+  .container {
+    max-width: 92%;
   }
 }
